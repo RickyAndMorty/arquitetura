@@ -17,6 +17,7 @@ public class Nomes {
     public static void main(String[] args) 
     {
         System.out.println("Novo teste para testar commit");
+        System.out.println("Novo teste para testar commit");
     }
     
 }
