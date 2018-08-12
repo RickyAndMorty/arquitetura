@@ -3,20 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package nomes;
 
 /**
  *
  * @author Ricardo Santos
  */
-public class Nomes {
+class event {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) 
-    {
-        double a = 2.00;
+    static char getKeyChar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
