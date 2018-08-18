@@ -19,6 +19,7 @@ public class ListagemClientes {
     public static void main(String[] args) {
         // TODO code application logic here
         int contador, i;
+        // Lista de clientes
         ArrayList<String> clientes = new ArrayList();
         Cliente dados;
         dados = new Cliente();
