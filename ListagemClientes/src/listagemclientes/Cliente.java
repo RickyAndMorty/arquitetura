@@ -10,6 +10,9 @@ import java.util.Scanner;
 /**
  *
  * @author Ricardo Santos
+ * 
+ * Esta classe implementa os gets e sets relacionados aos atributos do cliente
+ * 
  */
 public class Cliente
 {
@@ -36,6 +39,12 @@ public class Cliente
 		    //Seta Pais do cliente
                     System.out.printf("Informe o país:");
                     pais  = ler.nextLine();
+		}
+	public void setSigla()
+		{
+		    //Seta a Sigla do cliente
+                    System.out.printf("Informe a sigla:");
+                    sigla  = ler.nextLine();
 		}
 	public void setCredito()
 		{
