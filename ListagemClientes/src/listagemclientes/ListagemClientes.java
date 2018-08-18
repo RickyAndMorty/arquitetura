@@ -6,6 +6,7 @@
 ///Verificando se estou aqui
 package listagemclientes;
 
+import static java.lang.System.out;
 import java.util.ArrayList;
 
 /**
@@ -21,15 +22,26 @@ public class ListagemClientes {
         // TODO code application logic here
         int contador, i;
         // Lista de clientes
-        ArrayList<String> clientes = new ArrayList();
-        Cliente dados;
-        dados = new Cliente();
-        dados.setNome();
-        clientes.add(dados.getNome());
+        Cliente cliente = new Cliente();
+        ArrayList<Cliente> clientes;
+        clientes = new ArrayList<Cliente>();
+        
+        cliente.setNome();
+        cliente.setIdade();
+        cliente.setCredito();
+        cliente.setPais();
+        cliente.setSigla();
+        cliente.setTelefone();
+        
+        
+        
+        clientes.add(cliente);
+        
         contador = clientes.size();
+        
         for(i = 0; i < contador; i ++)
         {
-            System.out.printf("Posição %s\n",clientes.get(i));
+            out.println(clientes.get(i));
         }
     }
     
