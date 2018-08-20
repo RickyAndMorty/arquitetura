@@ -30,6 +30,7 @@ public class ListaClientes {
         
         //Cria a lista de Clientes
         List<Cliente> clientes = new ArrayList<>();
+        List<Nacionalidade> nac = new ArrayList<>();
         //Adiciona os clientes na lista
         while (opcao != 0) {
             System.out.printf("Informe\n1 para inserir, \n2 para listar, \n0 para sair\n ");
@@ -46,7 +47,24 @@ public class ListaClientes {
                         }
                     });
                     cliente.setTelefone();
+                    do{
+                        int a = 0;
                     cliente.setPais();
+                    Nacionalidade nacionalidade = new Nacionalidade( "default");
+                    nac.forEach((c) -> {
+                        if(c.getPais().equals(cliente.getPais()))//estou comparando banco com o cadastro
+                        {
+                            System.out.println("Pais ja cadastrado");
+                            //se pais for igual com o do banco, esta errado, tem que ser diferente apenas com o do cliente
+                        }else{
+                            nacionalidade.Pais = cliente.getPais();
+                            nac.add(nacionalidade);
+                            a = 1;
+                            System.out.println("Cadastro de pais concluido com sucesso");//cadastra pais
+                            
+                        }
+                    });
+                    }while(a != 1);
                     cliente.setIdade();
                     clientes.add(cliente);
                 break;

@@ -5,6 +5,8 @@
  */
 package listaclientes;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -18,6 +20,7 @@ public class Cliente {
     private int idade;
     double credito;
     Scanner entrada = new Scanner(System.in);
+    List<Nacionalidade> nac = new ArrayList<>();
     public Cliente( String nome, String telefone, String pais,int idade, double credito) {
         this.nome = nome;
         this.telefone = telefone;
@@ -54,6 +57,8 @@ public class Cliente {
         /*Se o cliente morar no Brasil, ele terá um crédito adicional de R$ 100,00, 
         independente da idade;
         o campo país não pode ser nulo/vazio;*/
+        
+        
         if("Brasil".equals(pais))
         {
             credito = 100.00;
