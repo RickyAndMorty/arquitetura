@@ -98,16 +98,4 @@ public class ListaClientes {
         }
         //Exibe os nomes dos clientes por um foreach      
     }
-    public boolean VerificaNomeNaLista( List<Cliente> clientes, String username)
-    {
-        for(int i = 0; i < clientes.size(); i ++)
-        {
-                 if(clientes.get(i).getNome().equals(username))
-                 {
-                     return true;
-                 }
-        }
-        return false;
-        
-    }
 }
