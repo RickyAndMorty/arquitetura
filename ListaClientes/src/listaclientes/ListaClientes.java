@@ -28,10 +28,7 @@ public class ListaClientes {
         
         //Cria a lista de Clientes
         List<Cliente> clientes = new ArrayList<>();
-        //Adiciona os clientes na lis
-
-        
-        
+        //Adiciona os clientes na lisa
         while (opcao != 0) {
             System.out.printf("Informe\n1 para inserir, \n2 para listar, \n0 para sair\n ");
             opcao = entrada.nextInt();
