@@ -56,7 +56,7 @@ public class ListaClientes {
                     do{
                         int a = 0;
                     cliente.setPais();
-                    Nacionalidade nacionalidade = new Nacionalidade( "default");
+                    Nacionalidade nacionalidade = new Nacionalidade("default");
                     nac.forEach((c) -> {
                         if(c.getPais().equals(cliente.getPais()))//estou comparando banco com o cadastro
                         {
