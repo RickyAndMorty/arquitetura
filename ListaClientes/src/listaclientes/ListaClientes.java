@@ -28,7 +28,7 @@ public class ListaClientes {
         
         //Cria a lista de Clientes
         List<Cliente> clientes = new ArrayList<>();
-        //Adiciona os clientes na lisa
+        //Adiciona os clientes na lista
         while (opcao != 0) {
             System.out.printf("Informe\n1 para inserir, \n2 para listar, \n0 para sair\n ");
             opcao = entrada.nextInt();
@@ -37,6 +37,12 @@ public class ListaClientes {
             case 1:
                     Cliente cliente = new Cliente( "SemNome", "SemTelefone", "SemPais", 0, 0.00);
                     cliente.setNome();
+                    clientes.forEach((c) -> {
+                        if(c.getNome().equals(cliente.getNome()))
+                        {
+                            System.out.println("Esse nome ja existe na lista");
+                        }
+                    });
                     cliente.setTelefone();
                     cliente.setPais();
                     cliente.setIdade();
