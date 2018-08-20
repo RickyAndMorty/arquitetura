@@ -45,6 +45,7 @@ public class Cliente {
             }
         }while(nome.length() < 5);
     }
+
     void setTelefone()
     {
         System.out.print("Informe telefone: ");
@@ -100,5 +101,7 @@ public class Cliente {
     {
         return credito;
     }
+
+
 
 }

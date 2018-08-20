@@ -25,6 +25,7 @@ public class ListaClientes {
         //Cria os Clientes
         
         int opcao = -1;
+        int flag;
         Scanner entrada = new Scanner(System.in);
 
         
@@ -39,13 +40,18 @@ public class ListaClientes {
             switch (opcao) {
             case 1:
                     Cliente cliente = new Cliente( "SemNome", "SemTelefone", "SemPais", 0, 0.00);
+                    /*Não é permitido mais de um cliente com o mesmo nome;*/
+                    flag = 0;
+
                     cliente.setNome();
-                    clientes.forEach((c) -> {
-                        if(c.getNome().equals(cliente.getNome()))
+                    for(int i = 0; i < clientes.size(); i ++){
+                        if(clientes.get(i).getNome().equals(cliente.getNome()))
                         {
-                            System.out.println("Esse nome ja existe na lista");
+                            System.out.println("O nome ja consta na lista\n Por favor...");
+                            cliente.setNome();
+                            i = 0;
                         }
-                    });
+                    }
                     cliente.setTelefone();
                     do{
                         int a = 0;
@@ -92,5 +98,16 @@ public class ListaClientes {
         }
         //Exibe os nomes dos clientes por um foreach      
     }
-    
+    public boolean VerificaNomeNaLista( List<Cliente> clientes, String username)
+    {
+        for(int i = 0; i < clientes.size(); i ++)
+        {
+                 if(clientes.get(i).getNome().equals(username))
+                 {
+                     return true;
+                 }
+        }
+        return false;
+        
+    }
 }
