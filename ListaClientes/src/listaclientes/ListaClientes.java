@@ -32,10 +32,12 @@ public class ListaClientes {
         //Cria a lista de Clientes
         List<Cliente> clientes = new ArrayList<>();
         List<Nacionalidade> nac = new ArrayList<>();
+        
         //Adiciona os clientes na lista
         while (opcao != 0) {
-            System.out.printf("Informe\n1 para inserir, \n2 para listar, \n0 para sair\n ");
+            System.out.printf("Informe\n1 para inserir, \n2 para listar Clientes,\n3 para incluir Pais, \n4 para listar Paises cadastrados,\n0 para sair\n ");
             opcao = entrada.nextInt();
+            Nacionalidade nacionalidade = new Nacionalidade("default", "default");
             
             switch (opcao) {
             case 1:
@@ -58,7 +60,7 @@ public class ListaClientes {
                     
                     cliente.setPais();
                     
-                    Nacionalidade nacionalidade = new Nacionalidade("default");
+                   
                     cont =0;
                     if(!clientes.isEmpty()){
                         for(int i=0;i < clientes.size() ;i++)
@@ -76,10 +78,12 @@ public class ListaClientes {
                         }
                         if(cont == (clientes.size())){//se não tiver nome igual adiciona em nacionalidade
                             nacionalidade.setPais(cliente.getPais());
+                            nacionalidade.setSigla();
                             nac.add(nacionalidade);                        
                         }
                     }else{
                         nacionalidade.setPais(cliente.getPais());
+                        nacionalidade.setSigla();
                         nac.add(nacionalidade);
                         
                     }
@@ -104,14 +108,41 @@ public class ListaClientes {
                 }
                 break;
             case 3:
+                System.out.println("Insira o Pais que deseja cadastrar");
+                nacionalidade.setPais(entrada.next());
+                nacionalidade.setSigla();
+                if(!nac.isEmpty()){
+                        for(int i=0;i < nac.size() ;i++)
+                        {
+                            if(nac.get(i).getPais().equals(nacionalidade.getPais()))//estou comparando banco com o cadastro
+                            {                            
+                                
+                                //System.out.println("Pais ja cadastrado");
+                                //cliente.setPais();
+                                
+                                // comparo o cadastro com o banco, se não estiver cadastrado eu cadastro.
+                                //se ja estiver cadastrado não faço nada                                                                
+                            
+                            }else{cont++;}//verifica se não há nenhum pais com nome igual                    
+                        }
+                        if(cont == (nac.size())){//se não tiver nome igual adiciona em nacionalidade
+                            //nacionalidade.setPais(cliente.getPais());
+                            nac.add(nacionalidade);                        
+                        }
+                    }else{
+                        //nacionalidade.setPais(cliente.getPais());
+                        nac.add(nacionalidade);
+                        
+                    }break;
+            case 4:
                 if(clientes.isEmpty()){
                     System.out.println("Não há pais cadastrado");
                 }else{
                     nac.forEach((c) -> {
-                    System.out.println("Pais: " + c.getPais());
+                    System.out.println("Pais: " + c.getPais() + "Sigla: " + c.getSigla());
                     });
                 
-                }
+                }break;
             case 0:
                 System.out.println("bye");
             }

@@ -5,15 +5,32 @@
  */
 package listaclientes;
 
+import java.util.Scanner;
+
 /**
  *
  * @author vinicius
  */
 public class Nacionalidade {
     public String Pais;
+    public String Sigla;
+    Scanner entrada = new Scanner(System.in);
     
-    public Nacionalidade(String Pais){
+    public Nacionalidade(String Pais, String Sigla){
         this.Pais = Pais;
+        this.Sigla = Sigla;
+    }
+
+    public String getSigla() {
+        return Sigla;
+    }
+
+    public void setSigla() {
+        do{
+            System.out.println("Informe a sigla de seu Pais");
+            Sigla = entrada.next();
+        }while(Sigla.length() < 2);
+        
     }
 
     public String getPais() {
