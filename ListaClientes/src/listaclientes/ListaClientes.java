@@ -23,7 +23,7 @@ public class ListaClientes {
     public static void main(String[] args) {
         // TODO code application logic here
         //Cria os Clientes
-        
+        int cont = 0;
         int opcao = -1;
         int flag;
         Scanner entrada = new Scanner(System.in);
@@ -36,12 +36,13 @@ public class ListaClientes {
         while (opcao != 0) {
             System.out.printf("Informe\n1 para inserir, \n2 para listar, \n0 para sair\n ");
             opcao = entrada.nextInt();
-
+            
             switch (opcao) {
             case 1:
                     Cliente cliente = new Cliente( "SemNome", "SemTelefone", "SemPais", 0, 0.00);
                     /*Não é permitido mais de um cliente com o mesmo nome;*/
                     flag = 0;
+
 
                     cliente.setNome();
                     for(int i = 0; i < clientes.size(); i ++){
@@ -53,25 +54,36 @@ public class ListaClientes {
                         }
                     }
                     cliente.setTelefone();
-                    do{
-                        int a = 0;
-                    cliente.setPais();
-                    Nacionalidade nacionalidade = new Nacionalidade("default");
-                    nac.forEach((c) -> {
-                        if(c.getPais().equals(cliente.getPais()))//estou comparando banco com o cadastro
-                        {
-                            System.out.println("Pais ja cadastrado");
-                            //se pais for igual com o do banco, esta errado, tem que ser diferente apenas com o do cliente
-                        }else{
-                            nacionalidade.Pais = cliente.getPais();
-                            nac.add(nacionalidade);
-                            a = 1;
-                            System.out.println("Cadastro de pais concluido com sucesso");//cadastra pais
-                            
-                        }
-                    });
-                    }while(a != 1);
                     cliente.setIdade();
+                    
+                    cliente.setPais();
+                    
+                    Nacionalidade nacionalidade = new Nacionalidade("default");
+                    cont =0;
+                    if(!clientes.isEmpty()){
+                        for(int i=0;i < clientes.size() ;i++)
+                        {
+                            if(nac.get(i).getPais().equals(cliente.getPais()))//estou comparando banco com o cadastro
+                            {                            
+                                
+                                //System.out.println("Pais ja cadastrado");
+                                //cliente.setPais();
+                                
+                                // comparo o cadastro com o banco, se não estiver cadastrado eu cadastro.
+                                //se ja estiver cadastrado não faço nada                                                                
+                            
+                            }else{cont++;}//verifica se não há nenhum pais com nome igual                    
+                        }
+                        if(cont == (clientes.size())){//se não tiver nome igual adiciona em nacionalidade
+                            nacionalidade.setPais(cliente.getPais());
+                            nac.add(nacionalidade);                        
+                        }
+                    }else{
+                        nacionalidade.setPais(cliente.getPais());
+                        nac.add(nacionalidade);
+                        
+                    }
+                    
                     clientes.add(cliente);
                 break;
 
@@ -91,6 +103,15 @@ public class ListaClientes {
                     });
                 }
                 break;
+            case 3:
+                if(clientes.isEmpty()){
+                    System.out.println("Não há pais cadastrado");
+                }else{
+                    nac.forEach((c) -> {
+                    System.out.println("Pais: " + c.getPais());
+                    });
+                
+                }
             case 0:
                 System.out.println("bye");
             }

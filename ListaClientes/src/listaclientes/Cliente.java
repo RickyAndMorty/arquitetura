@@ -54,7 +54,7 @@ public class Cliente {
     void setPais()
     {
         System.out.print("Informe o Pais: ");
-        pais = entrada.nextLine();
+        pais = entrada.next();
         /*Se o cliente morar no Brasil, ele terá um crédito adicional de R$ 100,00, 
         independente da idade;
         o campo país não pode ser nulo/vazio;*/
