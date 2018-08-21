@@ -48,8 +48,13 @@ public class Cliente {
 
     void setTelefone()
     {
-        System.out.print("Informe telefone: ");
-        telefone = entrada.nextLine();        
+        do{
+            System.out.print("Informe o telefone: ");
+            telefone = entrada.next();
+            if(telefone.length() < 7 && telefone.length() > 10){
+                System.out.println("Telefone invalido");
+            }
+        }while(telefone.length() < 7 || telefone.length() > 15);
     }
     void setPais()
     {

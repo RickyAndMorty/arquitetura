@@ -14,11 +14,26 @@ import java.util.Scanner;
 public class Nacionalidade {
     public String Pais;
     public String Sigla;
+    public String cod_pais;
+
     Scanner entrada = new Scanner(System.in);
     
-    public Nacionalidade(String Pais, String Sigla){
+    public String getCod_pais() {
+        return cod_pais;
+    }
+
+    public void setCod_pais() {
+          do{
+            System.out.println("Informe o código do seu Pais");
+            cod_pais = entrada.next();
+        }while(cod_pais.length() > 4);
+    }
+    
+    
+    public Nacionalidade(String Pais, String Sigla, String cod_pais){
         this.Pais = Pais;
         this.Sigla = Sigla;
+        this.cod_pais = cod_pais;
     }
 
     public String getSigla() {
